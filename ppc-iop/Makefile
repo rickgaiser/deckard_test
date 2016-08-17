@@ -11,9 +11,11 @@ clean:
 	rm -f $(BINARY).elf
 	rm -f *.o
 
+debug:
+	$(PREFIX)objdump -d $(BINARY).elf
+
 $(BINARY).bin: $(BINARY).elf
 	$(PREFIX)objcopy -O binary $< $@
-	$(PREFIX)objdump -d $<
 
 $(BINARY).elf: $(OBJS)
 	$(PREFIX)gcc -T linker.ld -o $@ -mcpu=405 -ffreestanding -O2 -nostdlib $^

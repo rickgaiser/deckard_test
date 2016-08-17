@@ -15,10 +15,12 @@ IOP_MODS = main imports
 IOP_OBJS = $(addsuffix .o, $(addprefix $(IOP_OBJS_DIR), $(IOP_MODS)))
 
 all: $(IOP_OBJS_DIR) $(IOP_BIN_DIR) $(IOP_BIN)
-	iop-objdump -d bin/ppc_trigger.irx
 
 clean:
 	rm -f -r $(IOP_OBJS_DIR) $(IOP_BIN_DIR)
+
+debug:
+	iop-objdump -d $(IOP_BIN)
 
 include $(PS2SDKSRC)/Defs.make
 include $(PS2SDKSRC)/iop/Rules.make
