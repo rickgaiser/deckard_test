@@ -1,6 +1,6 @@
 PREFIX=powerpc-none-eabi-
-BINARY=test
-FILES=entry test
+BINARY=ppc_test
+FILES=entry
 OBJS=$(addsuffix .o, $(FILES))
 
 
